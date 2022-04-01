@@ -1,0 +1,245 @@
+/* ------------------ */
+/* Custom properties  */
+/* ------------------ */
+:root {
+  /* colors */
+  --clr-primary-400: hsl(257, 40%, 49%);
+  --clr-primary-500: hsl(300, 69%, 71%);
+
+  --clr-white: hsl(0, 0%, 100%); 
+
+  /* font size */
+  --fs-400: 0.9375rem;
+  --fs-500: 1.6rem;
+
+  /* font styles */
+  --ff-regular: 'Open Sans', sans-serif;
+  --ff-heading: 'Poppins', sans-serif;
+
+  /* font weight */
+  --fw-400: 400;
+  --fw-500: 600;
+}
+@media (min-width: 60rem) {
+  :root {
+    --fs-400: 1.2rem;
+    --fs-500: 2.6rem;
+
+  }
+}
+/* -------------------- */
+/* Reset                */
+/* -------------------- */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* Margin reset */
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+/* make images easier to work with */
+img:not([hidden]),
+picture:not([hidden]) {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+/* -------------------- */
+/* Utility classes      */
+/* -------------------- */
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.flex-column {
+  flex-direction: column;
+}
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+.d-block {
+  display: block;
+}
+.line-height-100 {
+  line-height: 1.5;
+}
+.text-center {
+  text-align: center;
+}
+/* font size */
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+/* font styles */
+.ff-regular {
+  font-family: var(--ff-regular);
+}
+.ff-bold {
+  font-family: var(--ff-heading);
+}
+
+/* font weights */
+.fw-400 {
+  font-weight: var(--fw-400);
+}
+.fw-500 {
+  font-weight: var(--fw-500);
+}
+
+/* Screen reader accessebility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+/* Setting body defaults */
+body {
+  display: grid;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2.26rem;
+  
+  min-height: 100vh;
+  color: var(--clr-white);
+
+  background-color: var(--clr-primary-400);
+  background-image: url(./images/bg-mobile.svg);
+  background-repeat: no-repeat;
+}
+@media (min-width: 60rem) {
+  body {
+    background-image: url(./images/bg-desktop.svg);
+  }
+}
+/* ------------------ */
+/* Components         */
+/* ------------------ */
+.container {
+  gap: 3rem;
+}
+
+/* logo */
+.logo {
+  grid-template-columns: 8rem 1fr;
+}
+@media (min-width: 60rem) {
+.logo {
+  grid-template-columns: 12rem 1fr;
+}
+}
+
+/* register button */
+.register_btn {
+  font-family: var(--ff-regular);
+  color: var(--clr-primary-400);
+
+  padding: .8rem;
+  margin: auto;
+  width: 14rem;
+  
+  border: none;
+  border-radius: 35px;
+
+  background-color: var(--clr-white);
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: .2s ease-in;
+
+  cursor: pointer;
+}
+.register_btn:hover {
+  background-color: var(--clr-primary-500);
+  color: var(--clr-white);
+}
+
+@media (min-width: 60rem) {
+  .register_btn {
+    padding: 1.25rem;
+
+    margin: 0;
+  }
+}
+
+/* social links */
+.social_links {
+  justify-content: center;
+}
+.social_links a > i{
+  width: 2.2rem;
+  height: 2.2rem;
+
+  padding-top: calc(50% - .5rem);
+
+  border-radius: 50%;
+  border: 1px solid var(--clr-white);
+  
+  color: var(--clr-white);
+  font-size: 16px;
+  text-align: center;
+
+  transition: .2s ease-in;
+}
+
+.social_links a > i:hover {
+  border-color: var(--clr-primary-500);
+  color: var(--clr-primary-500);
+}
+
+/* layout */
+
+@media (min-width: 60rem) {
+  body{
+    grid-template-areas: 
+    '. logo .'
+    '. main .'
+    '. social .';
+  }
+  body > section:nth-child(1) {
+    grid-area: logo;
+  }
+  body > main {
+  grid-area: main;
+  }
+  body > section:nth-child(3) {
+    grid-area: social;
+  }
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container section:last-child {
+    max-width: 35rem;
+  }
+  .container h1,
+  .container h2 {
+    text-align: left;
+  }
+
+
+
+
+.social_links {
+  justify-content: end;
+}
+  }
